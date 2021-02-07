@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_layout"
+        android:text="Grid Layout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rv_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_img"
+        tools:listitem="@layout/anime_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_prev"
+        app:layout_constraintTop_toBottomOf="@id/btn_layout"
+
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_prev"
+        android:text="Previous Page"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_img"
+        app:layout_constraintEnd_toStartOf="@id/tv_page_of"
+        />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_page_of"
+        android:text="Page: "
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@id/btn_prev"
+        app:layout_constraintTop_toBottomOf="@+id/rv_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_page_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_page_num"
+        android:text="1"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintStart_toEndOf="@id/tv_page_of"
+        app:layout_constraintTop_toBottomOf="@+id/rv_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_next"
+        android:text="Next Page"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_img"
+        app:layout_constraintStart_toEndOf="@id/tv_page_num"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
