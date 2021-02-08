@@ -44,16 +44,9 @@ public class AnimeViewModel extends AndroidViewModel {
                 Toast.LENGTH_LONG).show();
     }
     public void getAnimeResponse(int id) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.jikan.moe/v3/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
-        AnimeTopService animeTopService = retrofit.create(AnimeTopService.class);
-        Observable<AnimeResponse> animeResponseObservable =
-                animeTopService.getAnimeResponse(id);
-        animeResponseObservable.subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
+        AnimeTopRepo.getInstance().getAnimeResponse(id).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
                 .map(result -> result).subscribe(this::handleResults, this::handleError);
+
 //        AnimeTopRepo.getInstance().getAnimeResponse(id).enqueue(new Callback<AnimeResponse>() {
 //            @Override
 //            public void onResponse(Call<AnimeResponse> call, Response<AnimeResponse> response) {
