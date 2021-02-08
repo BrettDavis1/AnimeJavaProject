@@ -3,21 +3,40 @@ package com.example.animejavaproject.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
 import com.squareup.moshi.Json;
 
 public class Top implements Parcelable {
-    @Json(name = "mal_id")
+
+    @SerializedName("mal_id")
     private int malId;
+    @SerializedName("rank")
     private int rank;
+    @SerializedName("title")
     private String title;
-    @Json(name = "image_url")
+    @SerializedName("image_url")
     private String imageUrl;
+    @SerializedName("type")
     private String type;
+    @SerializedName("episodes")
     private Integer episodes;
-    @Json(name = "start_date")
+    @SerializedName("start_date")
     private String startDate;
-    @Json(name = "end_date")
-    private String endDate; // can be null
+    @SerializedName("end_date")
+    private String endDate;
+
+//    @Json(name = "mal_id")
+//    private int malId;
+//    private int rank;
+//    private String title;
+//    @Json(name = "image_url")
+//    private String imageUrl;
+//    private String type;
+//    private Integer episodes;
+//    @Json(name = "start_date")
+//    private String startDate;
+//    @Json(name = "end_date")
+//    private String endDate; // can be null
 
     //Needed or wanted default value if data was empty
     public Top() {

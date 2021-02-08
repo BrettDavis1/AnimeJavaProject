@@ -1,12 +1,24 @@
 package com.example.animejavaproject.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class AnimeTopResponse {
+    @SerializedName("request_hash")
     private String requestHash;
+    @SerializedName("request_cached")
     private boolean requestCached;
+    @SerializedName("request_cache_expiry")
     private int requestCacheExpiry;
+    @SerializedName("top")
     private List<Top> top;
+
+
+//    private String requestHash;
+//    private boolean requestCached;
+//    private int requestCacheExpiry;
+//    private List<Top> top;
 
     public AnimeTopResponse(String requestHash, boolean requestCached, int requestCacheExpiry, List<Top> top) {
         this.requestHash = requestHash;
